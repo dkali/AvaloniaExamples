@@ -6,6 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="BasicMvvmSample.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        x:CompileBindings="True"
         Icon="/Assets/avalonia-logo.ico"
         Title="BasicMvvmSample">
 
@@ -15,6 +16,26 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <TabControl>
+        <TabItem Header="Simple ViewModel">
+            <StackPanel DataContext="{Binding SimpleViewModel}" Spacing="10">
+                <TextBlock>Enter your Name:</TextBlock>
+                <TextBox Text="{Binding Name}" />
+                <TextBox Text="{Binding Greeting, Mode=OneWay}"
+                         IsReadOnly="True"
+                         FontWeight="Bold" />
+            </StackPanel>
+        </TabItem>
+        
+        <TabItem Header="Reactive UI">
+            <StackPanel DataContext="{Binding ReactiveViewModel}" Spacing="10">
+                <TextBlock>Enter your Name:</TextBlock>
+                <TextBox Text="{Binding Name}"/>
+                <TextBox Text="{Binding Greeting, Mode=OneWay}"
+                         FontWeight="Bold" IsReadOnly="True"/>
+            </StackPanel>
+        </TabItem>
+        
+    </TabControl>
 
 </Window>
