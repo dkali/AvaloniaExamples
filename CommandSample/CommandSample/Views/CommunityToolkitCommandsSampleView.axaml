@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:CommandSample.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="CommandSample.Views.ReactiveUiCommandsSampleView"
-             x:DataType="viewModels:ReactiveUiCommandsViewModel">
+             x:DataType="viewModels:CommunityToolkitCommandsViewModel"
+             x:Class="CommandSample.Views.CommunityToolkitCommandsSampleView">
+    
     <Design.DataContext>
-        <viewModels:ReactiveUiCommandsViewModel/>
+        <viewModels:CommunityToolkitCommandsViewModel/>
     </Design.DataContext>
     
     <Grid RowDefinitions="Auto, Auto, *" ColumnDefinitions="Auto, *">
@@ -37,7 +38,7 @@
             <!-- This button will ask start a multi-step sequence to open the doors -->
             <!-- As this is a long operation, the command is async.-->
             <!-- HAL inform us about the current progress of the doors.-->
-            <Button Command="{Binding OpenThePodBayDoorsAsyncCommand}"
+            <Button Command="{Binding OpenThePodBayDoorsAsync}"
                     Content="Start Pod Bay Opening Sequence"/>
         </StackPanel>
         
