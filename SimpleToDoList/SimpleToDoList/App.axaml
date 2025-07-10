@@ -11,5 +11,15 @@
   
     <Application.Styles>
         <FluentTheme />
+        
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        
+        <Style Selector="Button:disabled Image">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
     </Application.Styles>
 </Application>

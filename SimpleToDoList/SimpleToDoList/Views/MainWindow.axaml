@@ -13,14 +13,14 @@
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel />
     </Design.DataContext>
 
     <Grid RowDefinitions="Auto, *, Auto"
           x:Name="Root">
-        
-        <TextBlock Text="My ToDo-List"/>
-        
+
+        <TextBlock Text="My ToDo-List" Classes="h1" />
+
         <ScrollViewer Grid.Row="1">
             <ItemsControl ItemsSource="{Binding ToDoItems}">
                 <!-- The ItemTemplate defines how each item should be represented -->
@@ -29,25 +29,25 @@
                         <Grid ColumnDefinitions="*, Auto">
                             <CheckBox Content="{Binding Content}"
                                       IsChecked="{Binding IsChecked}" />
-                            
+
                             <!-- Note how we use the Root-Grid to get the MainViewModel here. As we use compiled bindings we have to cast the DataContext -->
                             <Button Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).RemoveItemCommand}"
                                     CommandParameter="{Binding .}"
                                     Grid.Column="1">
-                                Delete
+                                <Image Width="16" Height="16" Source="/Assets/delete_icon.png" />
                             </Button>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        
+
         <TextBox Grid.Row="2"
                  Text="{Binding NewItemContent}"
                  Watermark="Add a new Item">
             <TextBox.InnerRightContent>
                 <Button Command="{Binding AddItemCommand}">
-                    Add
+                    <Image Width="16" Height="16" Source="/Assets/accept_icon.png" />
                 </Button>
             </TextBox.InnerRightContent>
             <TextBox.KeyBindings>
